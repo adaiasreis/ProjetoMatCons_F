@@ -46,9 +46,6 @@
        </item>
        <item row="2" column="0" colspan="2">
         <layout class="QGridLayout" name="gridLayout_2">
-         <item row="1" column="3">
-          <widget class="QComboBox" name="comboSexos"/>
-         </item>
          <item row="1" column="4">
           <widget class="QLabel" name="label_4">
            <property name="text">
@@ -63,16 +60,16 @@
            </property>
           </widget>
          </item>
+         <item row="1" column="3">
+          <widget class="QComboBox" name="comboSexos"/>
+         </item>
          <item row="1" column="5">
           <widget class="QLineEdit" name="campTelefone"/>
          </item>
-         <item row="1" column="1">
-          <widget class="QLineEdit" name="campCpf"/>
-         </item>
-         <item row="1" column="2">
-          <widget class="QLabel" name="label_7">
-           <property name="text">
-            <string>Sexo</string>
+         <item row="2" column="5">
+          <widget class="QLineEdit" name="campCh_sem">
+           <property name="readOnly">
+            <bool>false</bool>
            </property>
           </widget>
          </item>
@@ -90,12 +87,15 @@
            </property>
           </widget>
          </item>
-         <item row="2" column="5">
-          <widget class="QLineEdit" name="campCh_sem">
-           <property name="readOnly">
-            <bool>false</bool>
+         <item row="1" column="2">
+          <widget class="QLabel" name="label_7">
+           <property name="text">
+            <string>Sexo</string>
            </property>
           </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="campCpf"/>
          </item>
          <item row="2" column="2">
           <widget class="QLabel" name="label_6">
@@ -104,6 +104,9 @@
            </property>
           </widget>
          </item>
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="campCargo"/>
+         </item>
          <item row="2" column="4">
           <widget class="QLabel" name="label_8">
            <property name="text">
@@ -111,8 +114,25 @@
            </property>
           </widget>
          </item>
-         <item row="2" column="1">
-          <widget class="QLineEdit" name="campCargo"/>
+         <item row="3" column="2">
+          <widget class="QLabel" name="label_9">
+           <property name="text">
+            <string>Usuario</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="3">
+          <widget class="QLineEdit" name="campUsurio"/>
+         </item>
+         <item row="3" column="5">
+          <widget class="QLineEdit" name="campSenha"/>
+         </item>
+         <item row="3" column="4">
+          <widget class="QLabel" name="label_10">
+           <property name="text">
+            <string>Senha</string>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>
@@ -198,6 +218,16 @@
           </layout>
          </item>
         </layout>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_11">
+         <property name="text">
+          <string>Email</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="campEmail"/>
        </item>
       </layout>
      </item>

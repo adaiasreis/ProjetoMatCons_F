@@ -46,7 +46,8 @@ class TableItens():
 
     def calculaValorTotal(self):
         valorTotal = 0
-        desconto = self.parent.campDesconto.text()
+        desconto = 0
+        valorTotalP = 0
         if desconto == "":
             desconto = "0"
 
@@ -56,99 +57,10 @@ class TableItens():
 
         desconto = float(desconto)  # converte para float
         if desconto < valorTotal:
-            valorTotal = valorTotal - desconto
+            valorTotalP = valorTotal - desconto
 
         self.parent.campValorTotal.setText("%.2f" % valorTotal)
-
-    def clickedCheck(self):
-        if self.parent.r_din.setChecked(True):
-            self.clickDin()
-        elif self.parent.r_cred.setChecked(True):
-            self.clickCred()
-        elif self.parent.r_carCred.setChecked(True):
-            self.click_cCred()
-        elif self.parent.r_carDeb.setChecked(True):
-            self.click_cDed()
-    
-    #Compra em DINHEIRO
-    def clickDin(self):
-        valorTotalP = 0.0
-        desconto = 0.0
-        valorTotal = self.parent.campValorTotal.text()
-        if valorTotal == "":
-            valorTotal = 0
-        else:
-            valorTotal = float(valorTotal)
-
-        if desconto == "":
-            desconto = 0
-        
-        radioBtn = self.parent.sender()
-        if radioBtn.isChecked():
-            desconto = valorTotal * 0.2
-            valorTotalP = valorTotal - desconto
-
-        self.parent.campDesconto.setText("%.2f" % desconto)
-        self.parent.campTotalPagar.setText("%.2f" % valorTotalP)
-            
-    #Compra no CREDIARIO
-    def clickCred(self):
-        valorTotalP = 0.0
-        desconto = 0.0
-        valorTotal = self.parent.campValorTotal.text()
-        if valorTotal == "":
-            valorTotal = 0
-        else:
-            valorTotal = float(valorTotal)
-
-        if desconto == "":
-            desconto = 0
-
-        radioBtn = self.parent.sender()
-        if radioBtn.isChecked():
-            desconto = valorTotal * 0.15
-            valorTotalP = valorTotal + desconto
-        self.parent.campDesconto.setText("0.0")
-        self.parent.campTotalPagar.setText("%.2f" % valorTotalP)
-
-    #Compra no CARTAO DE CREDITO
-    def click_cCred(self):
-        valorTotalP = 0.0
-        desconto = 0.0
-        valorTotal = self.parent.campValorTotal.text()
-        if valorTotal == "":
-            valorTotal = 0
-        else:
-            valorTotal = float(valorTotal)
-
-        if desconto == "":
-            desconto = 0
-
-        radioBtn = self.parent.sender()
-        if radioBtn.isChecked():
-            desconto = valorTotal * 0.05
-            valorTotalP = valorTotal - desconto
-        self.parent.campDesconto.setText("%.2f" % desconto)
-        self.parent.campTotalPagar.setText("%.2f" % valorTotalP)
-
-    #Compra no CARTAO DE DEBITO
-    def click_cDed(self):
-        valorTotalP = 0.0
-        desconto = 0.0
-        valorTotal = self.parent.campValorTotal.text()
-        if valorTotal == "":
-            valorTotal = 0
-        else:
-            valorTotal = float(valorTotal)
-
-        if desconto == "":
-            desconto = 0
-
-        radioBtn = self.parent.sender()
-        if radioBtn.isChecked():
-            desconto = valorTotal * 0.15
-            valorTotalP = valorTotal - desconto
-        self.parent.campDesconto.setText("%.2f" % desconto)
+        self.parent.campDesconto.setText("%.2f"% desconto)
         self.parent.campTotalPagar.setText("%.2f" % valorTotalP)
 
     def limparItens(self):

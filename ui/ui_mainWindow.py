@@ -35,9 +35,6 @@ class MainWindow(QMainWindow):
         self.stackedWidget.insertWidget(2, CadUser())
         self.stackedWidget.insertWidget(3, NovaVenda(self))
         self.stackedWidget.insertWidget(4, Vendas(self))
-        
-        
-        #self.stackedWidget.insertWidget(3, ListaVendas())
 
     def display(self, index):
         # necessário carregar as janelas a cada trasição para atualizar as informações

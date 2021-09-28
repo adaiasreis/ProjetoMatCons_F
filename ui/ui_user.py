@@ -42,9 +42,11 @@ class CadUser(QWidget):
         cargo = self.campCargo.text()
         salario = self.campSalario.text()
         ch_sem = self.campCh_sem.text()
+        user = self.campUsuario.text()
+        passw = self.campSenha.text()
         
-        if ((nome != "")and (cpf != "")and (sexo != "") and (telefone != "") and (cargo != "") and (salario != "") and (ch_sem != "")):
-            return User(-1, self.campNome.text(), self.campCpf.text(), self.comboSexos.currentText(), self.campTelefone.text(), self.campCargo.text(), self.campSalario.text(), self.campCh_sem.text())
+        if ((nome != "")and (cpf != "")and (sexo != "") and (telefone != "") and (cargo != "") and (salario != "") and (ch_sem != "") and (user != "") and (passw != "")):
+            return User(-1, self.campNome.text(), self.campCpf.text(), self.comboSexos.currentText(), self.campTelefone.text(), self.campCargo.text(), self.campSalario.text(), self.campCh_sem.text(), self.campUsuario.text(), self.campSenha.text())
         return None
     
     def limpaCampos(self):
@@ -56,6 +58,8 @@ class CadUser(QWidget):
         self.campCargo.setText("")
         self.campSalario.setText("")
         self.campCh_sem.setText("")
+        self.campUsuario.setText("")
+        self.campSenha.setText("")
         
         self.b_novo.setText("Adicionar")
         self.b_excluir.setEnabled(False)
@@ -69,6 +73,8 @@ class CadUser(QWidget):
         self.campCargo.setText(user.cargo)
         self.campSalario.setText(str(user.salario))
         self.campCh_sem.setText(str(user.ch_sem))
+        self.campUsuario.setText(user.user)
+        self.campSenha.setText(user.passw)
         
         self.b_novo.setText("Atualizar")
         self.b_excluir.setEnabled(True)

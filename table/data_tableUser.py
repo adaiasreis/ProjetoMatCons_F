@@ -4,10 +4,10 @@ import models.user_model as Usuarios
 
 class TableWidget(QTableWidget):
     def __init__(self, parent):
-        super().__init__(0, 4)
+        super().__init__(0, 5)
         self.parent = parent
 
-        headers = ["ID", "NOME","TELEFONE","CARGO"]
+        headers = ["ID", "NOME", "EMAIL","TELEFONE","CARGO"]
         self.setHorizontalHeaderLabels(headers)
 
         self.configTable()
@@ -17,6 +17,7 @@ class TableWidget(QTableWidget):
     def configTable(self):
         self.verticalHeader().setVisible(False)
         self.horizontalHeader().setStretchLastSection(False)
+        self.horizontalHeader().setSectionResizeMode(0,QHeaderView.ResizeToContents)
         self.horizontalHeader().setSectionResizeMode(1,QHeaderView.Stretch)
         self.horizontalHeader().setSectionResizeMode(2,QHeaderView.ResizeToContents)
         self.horizontalHeader().setSectionResizeMode(3,QHeaderView.ResizeToContents)
@@ -35,13 +36,15 @@ class TableWidget(QTableWidget):
         self.insertRow(rowCount)
         id_item = QTableWidgetItem(str(user.id))
         id_nome = QTableWidgetItem(user.nome)
+        id_email = QTableWidgetItem(user.email)
         id_telefone = QTableWidgetItem(user.telefone)
         id_cargo = QTableWidgetItem(user.cargo)
         
         self.setItem(rowCount, 0, id_item)
         self.setItem(rowCount, 1, id_nome)
-        self.setItem(rowCount, 2, id_telefone)
-        self.setItem(rowCount, 3, id_cargo)
+        self.setItem(rowCount, 2, id_email)
+        self.setItem(rowCount, 3, id_telefone)
+        self.setItem(rowCount, 4, id_cargo)
 
     def on_click(self):
         selected_row = self.currentRow()
