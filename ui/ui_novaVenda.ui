@@ -38,7 +38,7 @@
        </property>
        <property name="font">
         <font>
-         <pointsize>12</pointsize>
+         <pointsize>14</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -61,6 +61,12 @@
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
+     <property name="font">
+      <font>
+       <family>Modern No. 20</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
      <property name="title">
       <string>Buscar cliente</string>
      </property>
@@ -69,6 +75,12 @@
        <layout class="QGridLayout" name="gridLayout">
         <item row="0" column="1">
          <widget class="QLabel" name="label_3">
+          <property name="font">
+           <font>
+            <family>Modern No. 20</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
           <property name="text">
            <string>Selecione o cliente</string>
           </property>
@@ -82,8 +94,14 @@
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="font">
+           <font>
+            <family>Modern No. 20</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
           <property name="text">
-           <string>Id</string>
+           <string>ID</string>
           </property>
          </widget>
         </item>
@@ -94,6 +112,17 @@
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <family>Modern No. 20</family>
+            <pointsize>12</pointsize>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(154, 154, 154);</string>
           </property>
           <property name="editable">
            <bool>false</bool>
@@ -110,6 +139,15 @@
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <family>Modern No. 20</family>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(154, 154, 154);</string>
           </property>
           <property name="readOnly">
            <bool>true</bool>
@@ -131,8 +169,10 @@
         </property>
         <property name="font">
          <font>
-          <family>Gill Sans MT Condensed</family>
+          <family>Gadugi</family>
           <pointsize>12</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
          </font>
         </property>
         <property name="calendarPopup">
@@ -160,19 +200,41 @@
       </property>
       <item>
        <widget class="QGroupBox" name="groupBox_2">
+        <property name="font">
+         <font>
+          <family>Modern No. 20</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
         <property name="title">
          <string>Adicionar produtos</string>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_3">
          <item>
           <widget class="QLabel" name="label_4">
+           <property name="font">
+            <font>
+             <family>Modern No. 20</family>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
            <property name="text">
             <string>Selecione o produto</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="combo_produtos"/>
+          <widget class="QComboBox" name="combo_produtos">
+           <property name="font">
+            <font>
+             <family>Modern No. 20</family>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(154, 154, 154);</string>
+           </property>
+          </widget>
          </item>
          <item>
           <widget class="QGroupBox" name="groupBox_4">
@@ -190,6 +252,12 @@
              <layout class="QFormLayout" name="formLayout">
               <item row="0" column="0">
                <widget class="QLabel" name="label_5">
+                <property name="font">
+                 <font>
+                  <family>Modern No. 20</family>
+                  <pointsize>10</pointsize>
+                 </font>
+                </property>
                 <property name="text">
                  <string>Marca: </string>
                 </property>
@@ -197,6 +265,15 @@
               </item>
               <item row="0" column="1">
                <widget class="QLineEdit" name="campMarca">
+                <property name="font">
+                 <font>
+                  <family>Modern No. 20</family>
+                  <pointsize>12</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(181, 177, 195);</string>
+                </property>
                 <property name="readOnly">
                  <bool>true</bool>
                 </property>
@@ -204,13 +281,28 @@
               </item>
               <item row="1" column="0">
                <widget class="QLabel" name="label_6">
+                <property name="font">
+                 <font>
+                  <family>Modern No. 20</family>
+                  <pointsize>10</pointsize>
+                 </font>
+                </property>
                 <property name="text">
-                 <string>Valor: </string>
+                 <string>Valor R$: </string>
                 </property>
                </widget>
               </item>
               <item row="1" column="1">
                <widget class="QLineEdit" name="campValor">
+                <property name="font">
+                 <font>
+                  <family>Modern No. 20</family>
+                  <pointsize>12</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(181, 177, 195);</string>
+                </property>
                 <property name="readOnly">
                  <bool>true</bool>
                 </property>
@@ -218,6 +310,12 @@
               </item>
               <item row="2" column="0">
                <widget class="QLabel" name="label_7">
+                <property name="font">
+                 <font>
+                  <family>Modern No. 20</family>
+                  <pointsize>10</pointsize>
+                 </font>
+                </property>
                 <property name="text">
                  <string>Qtd. disponível:</string>
                 </property>
@@ -225,6 +323,15 @@
               </item>
               <item row="2" column="1">
                <widget class="QLineEdit" name="campQtd_disp">
+                <property name="font">
+                 <font>
+                  <family>Modern No. 20</family>
+                  <pointsize>12</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(181, 177, 195);</string>
+                </property>
                 <property name="readOnly">
                  <bool>true</bool>
                 </property>
@@ -232,6 +339,12 @@
               </item>
               <item row="3" column="0">
                <widget class="QLabel" name="label_8">
+                <property name="font">
+                 <font>
+                  <family>Modern No. 20</family>
+                  <pointsize>10</pointsize>
+                 </font>
+                </property>
                 <property name="text">
                  <string>Descrição:</string>
                 </property>
@@ -244,6 +357,15 @@
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Modern No. 20</family>
+                  <pointsize>12</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(181, 177, 195);</string>
                 </property>
                 <property name="readOnly">
                  <bool>true</bool>
@@ -286,13 +408,29 @@
                    <layout class="QFormLayout" name="formLayout_3">
                     <item row="0" column="0">
                      <widget class="QLabel" name="label_9">
+                      <property name="font">
+                       <font>
+                        <family>Modern No. 20</family>
+                        <pointsize>10</pointsize>
+                       </font>
+                      </property>
                       <property name="text">
                        <string>Quantidade: </string>
                       </property>
                      </widget>
                     </item>
                     <item row="0" column="1">
-                     <widget class="QLineEdit" name="campQuantidade"/>
+                     <widget class="QLineEdit" name="campQuantidade">
+                      <property name="font">
+                       <font>
+                        <family>Modern No. 20</family>
+                        <pointsize>12</pointsize>
+                       </font>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">background-color: rgb(154, 154, 154);</string>
+                      </property>
+                     </widget>
                     </item>
                    </layout>
                   </item>
@@ -301,16 +439,26 @@
                     <property name="enabled">
                      <bool>false</bool>
                     </property>
+                    <property name="font">
+                     <font>
+                      <family>Modern No. 20</family>
+                      <pointsize>10</pointsize>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>Adicionar item</string>
                     </property>
                    </widget>
                   </item>
                   <item>
-                   <widget class="QGroupBox" name="groupBox_6">
+                   <widget class="QGroupBox" name="grupPag">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
                     <property name="font">
                      <font>
-                      <pointsize>8</pointsize>
+                      <family>Modern No. 20</family>
+                      <pointsize>10</pointsize>
                      </font>
                     </property>
                     <property name="title">
@@ -321,9 +469,8 @@
                       <widget class="QRadioButton" name="r_din">
                        <property name="font">
                         <font>
-                         <pointsize>8</pointsize>
-                         <weight>50</weight>
-                         <bold>false</bold>
+                         <family>Modern No. 20</family>
+                         <pointsize>10</pointsize>
                         </font>
                        </property>
                        <property name="text">
@@ -335,7 +482,8 @@
                       <widget class="QRadioButton" name="r_carCred">
                        <property name="font">
                         <font>
-                         <pointsize>8</pointsize>
+                         <family>Modern No. 20</family>
+                         <pointsize>10</pointsize>
                          <weight>50</weight>
                          <bold>false</bold>
                         </font>
@@ -349,7 +497,8 @@
                       <widget class="QRadioButton" name="r_cred">
                        <property name="font">
                         <font>
-                         <pointsize>8</pointsize>
+                         <family>Modern No. 20</family>
+                         <pointsize>10</pointsize>
                          <weight>50</weight>
                          <bold>false</bold>
                         </font>
@@ -363,7 +512,8 @@
                       <widget class="QRadioButton" name="r_carDeb">
                        <property name="font">
                         <font>
-                         <pointsize>8</pointsize>
+                         <family>Modern No. 20</family>
+                         <pointsize>10</pointsize>
                          <weight>50</weight>
                          <bold>false</bold>
                         </font>
@@ -396,6 +546,9 @@
         <layout class="QVBoxLayout" name="verticalLayout_6">
          <item>
           <widget class="QTableWidget" name="tableWidget">
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(181, 177, 195);</string>
+           </property>
            <column>
             <property name="text">
              <string>Qtd.</string>
@@ -462,6 +615,12 @@
              <property name="enabled">
               <bool>false</bool>
              </property>
+             <property name="font">
+              <font>
+               <family>Modern No. 20</family>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
              <property name="text">
               <string>Limpar</string>
              </property>
@@ -485,6 +644,12 @@
              <property name="enabled">
               <bool>false</bool>
              </property>
+             <property name="font">
+              <font>
+               <family>Modern No. 20</family>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
              <property name="text">
               <string>Remover Item</string>
              </property>
@@ -496,6 +661,12 @@
           <layout class="QFormLayout" name="formLayout_2">
            <item row="0" column="0">
             <widget class="QLabel" name="label_10">
+             <property name="font">
+              <font>
+               <family>Modern No. 20</family>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
              <property name="text">
               <string>Valor Total: R$</string>
              </property>
@@ -509,10 +680,22 @@
                <pointsize>14</pointsize>
               </font>
              </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(181, 177, 195);</string>
+             </property>
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
             </widget>
            </item>
            <item row="1" column="0">
             <widget class="QLabel" name="label_11">
+             <property name="font">
+              <font>
+               <family>Modern No. 20</family>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
              <property name="text">
               <string>Desconto R$</string>
              </property>
@@ -526,10 +709,22 @@
                <pointsize>14</pointsize>
               </font>
              </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(181, 177, 195);</string>
+             </property>
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
             </widget>
            </item>
            <item row="2" column="0">
             <widget class="QLabel" name="label_12">
+             <property name="font">
+              <font>
+               <family>Modern No. 20</family>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
              <property name="text">
               <string>Valor Pagar</string>
              </property>
@@ -542,6 +737,12 @@
                <family>Arial Rounded MT Bold</family>
                <pointsize>14</pointsize>
               </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(181, 177, 195);</string>
+             </property>
+             <property name="readOnly">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
