@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>764</width>
-    <height>801</height>
+    <height>809</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -451,7 +451,7 @@
                    </widget>
                   </item>
                   <item>
-                   <widget class="QGroupBox" name="grupPag">
+                   <widget class="QGroupBox" name="groupPag">
                     <property name="enabled">
                      <bool>false</bool>
                     </property>

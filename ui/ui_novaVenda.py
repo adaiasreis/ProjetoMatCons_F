@@ -75,8 +75,8 @@ class NovaVenda(QWidget):
         #As formas de pagamento
         self.r_din.toggled.connect(self.clikedDin)
         self.r_cred.toggled.connect(self.clickedCred)
-        self.r_carDeb.toggled.connect(self.clikedCCred)
-        self.r_carCred.toggled.connect(self.clikedCDeb)
+        self.r_carCred.toggled.connect(self.clikedCCred)
+        self.r_carDeb.toggled.connect(self.clikedCDeb)
 
     def atualizaValorTotal(self):
         self.tabelaItens.calculaValorTotal()
@@ -103,9 +103,9 @@ class NovaVenda(QWidget):
         self.tabelaItens._addRow(item)
         self.b_limparItens.setEnabled(True)
         self.b_fecharVenda.setEnabled(True)
+        self.groupPag.setEnabled(True)
         self.b_addItem.setEnabled(False)
         self.campQuantidade.setText("")
-
         # REDUZ TEMPORARIAMENTE A QUANTIDADE DO ITEM NA LISTA DE PRODUTOS
         index = self.lista_produtos.index(self.produtoAtual)
         p = self.lista_produtos[index]
@@ -124,6 +124,10 @@ class NovaVenda(QWidget):
     #limpa os itens da tabela
     def limparItens(self):
         self.tabelaItens.limparItens()
+        self.campValorTotal.setText("")
+        self.campDesconto.setText("")
+        self.campTotalPagar.setText("")
+        self.groupPag.setEnabled(False)
 
     #limpa um item da tabela
     def limparSelecionado(self):
