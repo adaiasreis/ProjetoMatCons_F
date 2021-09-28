@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QWidget
+from PyQt5.QtWidgets import QWidget, QRadioButton
 from PyQt5 import uic
 from PyQt5.QtGui import QRegExpValidator
 from PyQt5.QtCore import QDateTime, QRegExp, QDate
@@ -64,6 +64,14 @@ class NovaVenda(QWidget):
         self.combo_produtos.currentIndexChanged.connect(self.index_changed_produto)
         # botão add item
         self.b_addItem.clicked.connect(self.addItem)
+        # botão clicável pagamento DINHEIRO
+        self.r_din.toggled.connect(self.clikedDin)
+        # botão clicável pagamento CREDIARIO
+        self.r_cred.toggled.connect(self.clickedCred)
+        # botão clicável pagamento CARTAO DE CREDITO
+        self.r_carCred.toggled.connect(self.clikedCCred)
+        # botão clicável pagamento CARTAO DE DEBITO
+        self.r_carDeb.toggled.connect(self.clikedCDeb)
         # botão limpar itens
         self.b_limparItens.clicked.connect(self.limparItens)
         # remove o item selecionado
@@ -73,10 +81,7 @@ class NovaVenda(QWidget):
         # prepara o fechamento da compra
         self.b_fecharVenda.clicked.connect(self.finalizaVenda)
         #As formas de pagamento
-        self.r_din.toggled.connect(self.clikedDin)
-        self.r_cred.toggled.connect(self.clickedCred)
-        self.r_carCred.toggled.connect(self.clikedCCred)
-        self.r_carDeb.toggled.connect(self.clikedCDeb)
+        
 
     def atualizaValorTotal(self):
         self.tabelaItens.calculaValorTotal()
@@ -141,24 +146,93 @@ class NovaVenda(QWidget):
         else:
             self.b_addItem.setEnabled(False)
 
+    # pagamento com DINHEIRO
     def clikedDin(self):
-        self.tabelaItens.clickDin()
+        valorTotalP = 0.0
+        desconto = 0.0
+        valorTotal = self.campValorTotal.text()
+        if valorTotal == "":
+            valorTotal = 0.0
+        else:
+            valorTotal = float(valorTotal)
 
+        if desconto == "":
+            desconto = 0
+        
+        radioBtn = self.sender()
+        if radioBtn.isChecked():
+            desconto = valorTotal * 0.2
+            valorTotalP = valorTotal - desconto
+
+        self.campDesconto.setText("%.2f" % desconto)
+        self.campTotalPagar.setText("%.2f" % valorTotalP)
+
+    # pagamento no CREDIARIO
     def clickedCred(self):
-        self.tabelaItens.clickCred()
+        valorTotalP = 0.0
+        desconto = 0.0
+        valorTotal = self.campValorTotal.text()
+        if valorTotal == "":
+            valorTotal = 0
+        else:
+            valorTotal = float(valorTotal)
 
+        if desconto == "":
+            desconto = 0
+
+        radioBtn = self.sender()
+        if radioBtn.isChecked():
+            desconto = valorTotal * 0.15
+            valorTotalP = valorTotal + desconto
+        self.campDesconto.setText("0.0")
+        self.campTotalPagar.setText("%.2f" % valorTotalP)
+
+    # pagamento com CARTAO DE CREDITO
     def clikedCCred(self):
-        self.tabelaItens.click_cCred()
+        valorTotalP = 0.0
+        desconto = 0.0
+        valorTotal = self.campValorTotal.text()
+        if valorTotal == "":
+            valorTotal = 0
+        else:
+            valorTotal = float(valorTotal)
 
+        if desconto == "":
+            desconto = 0
+
+        radioBtn = self.sender()
+        if radioBtn.isChecked():
+            desconto = valorTotal * 0.05
+            valorTotalP = valorTotal - desconto
+        self.campDesconto.setText("%.2f" % desconto)
+        self.campTotalPagar.setText("%.2f" % valorTotalP)
+
+    # pagamento com CARTAO DE DEBITO
     def clikedCDeb(self):
-        self.tabelaItens.click_cDed()
+        valorTotalP = 0.0
+        desconto = 0.0
+        valorTotal = self.campValorTotal.text()
+        if valorTotal == "":
+            valorTotal = 0
+        else:
+            valorTotal = float(valorTotal)
+
+        if desconto == "":
+            desconto = 0
+
+        radioBtn = self.sender()
+        if radioBtn.isChecked():
+            desconto = valorTotal * 0.15
+            valorTotalP = valorTotal - desconto
+        self.campDesconto.setText("%.2f" % desconto)
+        self.campTotalPagar.setText("%.2f" % valorTotalP)
 
     def finalizaVenda(self):
         #pega a data em string
         data = self.dateTimeEdit.dateTime().toString('dd/MM/yyyy')
         cliente = self.clienteAtual
         lista_de_itens = self.tabelaItens.listaItens
-        valor_total = self.campValorTotal.text()
+        valor_total = self.campTotalPagar.text()
         novaVenda = Venda(-1, cliente, lista_de_itens, valor_total, data)
         Vendas.addVenda(novaVenda)
         self.limparItens()

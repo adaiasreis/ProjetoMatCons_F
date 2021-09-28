@@ -6,7 +6,6 @@ import models.produtos_model as Produtos
 import models.clientes_model as Clientes
 
 def addVenda(venda):
-    print("Chagou até aqui!")
     conn = sqlite3.connect('models/db_matcons.db')
     cursor = conn.cursor()
 
@@ -29,7 +28,6 @@ def addVenda(venda):
         conn.commit()
 
     conn.close
-    print("Venda adicionada com sucesso!")
 
 def getVendas():
     conn = sqlite3.connect('models/db_matcons.db')

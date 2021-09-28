@@ -20,6 +20,7 @@ class TableWidget(QTableWidget):
         self.verticalHeader().setVisible(False)
         # ajusta as colunas ao tamanho da tela
         self.horizontalHeader().setStretchLastSection(False)
+        self.horizontalHeader().setSectionResizeMode(0,QHeaderView.ResizeToContents)
         self.horizontalHeader().setSectionResizeMode(1,QHeaderView.Stretch)
         self.horizontalHeader().setSectionResizeMode(2,QHeaderView.ResizeToContents)
         self.horizontalHeader().setSectionResizeMode(3,QHeaderView.ResizeToContents)
