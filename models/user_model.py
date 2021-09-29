@@ -69,3 +69,17 @@ def delUsuario(id):
     cursor.execute(sql, [id])
     conn.commit()
     conn.close()
+
+def getLogin(user, passw):
+    conn = sqlite3.connect('models/db_matcons.db')
+    cursor = conn.cursor()
+    sql = ("SELECT nome, user, passw FROM Usuarios WHERE user = ? AND passw = ?;")
+    cursor.execute(sql, [user, passw])
+    new_list = []
+    for l in cursor.fetchall():
+        user = l[0]
+        passw = l[1]
+        new = (user, passw)
+        new_list.append(new)
+    conn.close()
+    return new_list

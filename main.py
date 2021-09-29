@@ -2,6 +2,7 @@ from PyQt5.QtWidgets import QWidget, QApplication
 from PyQt5 import uic
 import sys
 from ui.ui_mainWindow import MainWindow
+import models.user_model as Usuarios
 
 class FazerLogin(QWidget):
     def __init__(self):
@@ -15,21 +16,25 @@ class FazerLogin(QWidget):
         self.b_sair.clicked.connect(self.Sair)
     
     def fazerLogin(self):
+
         while(True):
 
             self.l_info.setText("")
-            user = ""
-            passw = ""
+            usuario = ""
+            senha = ""
             
-            user = self.campUser.text()
-            passw = self.campPassw.text()
+            usuario = self.campUser.text()
+            senha = self.campPassw.text()
 
-            if user == 'adm' and passw == '123':
+            self.login = Usuarios.getLogin(usuario, senha)
+            print(self.login)
+            
+            if  len(self.login) > 0:
                 self.scre = MainWindow(self)
                 self.scre.show()
                 self.hide()
                 self.limpaCampos()
-                                
+                        
             else:
                 self.l_info.setText("Dados de login incorretos. Tente novamente.")
                 self.limpaCampos()
