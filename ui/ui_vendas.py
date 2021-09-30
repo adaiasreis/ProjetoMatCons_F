@@ -30,19 +30,16 @@ class Vendas(QWidget):
     def configTable(self):
         self.tableWidget.verticalHeader().setVisible(False)
         # ajusta a altura das linhas
-        self.tableWidget.verticalHeader().setSectionResizeMode(
-            QHeaderView.ResizeToContents)
+        self.tableWidget.verticalHeader().setSectionResizeMode(QHeaderView.ResizeToContents)
         # ajusta as colunas ao tamanho da tela
         self.tableWidget.horizontalHeader().setStretchLastSection(False)
-        self.tableWidget.horizontalHeader().setSectionResizeMode(
-            QHeaderView.ResizeToContents)
-        self.tableWidget.horizontalHeader().setSectionResizeMode(3,
-                                                                 QHeaderView.Stretch)
+        self.tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeToContents)
+        self.tableWidget.horizontalHeader().setSectionResizeMode(2, QHeaderView.Stretch)
 
         # desabilita a edição dos campos
         self.tableWidget.setEditTriggers(QTableWidget.NoEditTriggers)
         # seleciona toda a linha
-        self.tableWidget.setSelectionBehavior(False)
+        self.tableWidget.setSelectionBehavior(True)
 
     def carregaVendas(self):
         self.lista_de_vendas = Venda.getVendas()
@@ -67,11 +64,11 @@ class Vendas(QWidget):
 
         # insere os itens na tabela
         #self.tableWidget.setCellWidget(rowCount, 0, CustomQWidget(item, self, TYPE['info']))
-        self.tableWidget.setItem(rowCount, 1, id)
-        self.tableWidget.setItem(rowCount, 2, data)
-        self.tableWidget.setItem(rowCount, 3, nome)
-        self.tableWidget.setItem(rowCount, 4, fone)
-        self.tableWidget.setItem(rowCount, 5, valor)
+        self.tableWidget.setItem(rowCount, 0, id)
+        self.tableWidget.setItem(rowCount, 1, data)
+        self.tableWidget.setItem(rowCount, 2, nome)
+        self.tableWidget.setItem(rowCount, 3, fone)
+        self.tableWidget.setItem(rowCount, 4, valor)
         #self.tableWidget.setCellWidget(rowCount, 6, CustomQWidget(item, self))
 
 

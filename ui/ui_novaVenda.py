@@ -157,7 +157,7 @@ class NovaVenda(QWidget):
             valorTotal = float(valorTotal)
 
         if desconto == "":
-            desconto = 0
+            desconto = 0.0
         
         radioBtn = self.sender()
         if radioBtn.isChecked():
@@ -173,7 +173,7 @@ class NovaVenda(QWidget):
         desconto = 0.0
         valorTotal = self.campValorTotal.text()
         if valorTotal == "":
-            valorTotal = 0
+            valorTotal = 0.0
         else:
             valorTotal = float(valorTotal)
 
@@ -193,12 +193,12 @@ class NovaVenda(QWidget):
         desconto = 0.0
         valorTotal = self.campValorTotal.text()
         if valorTotal == "":
-            valorTotal = 0
+            valorTotal = 0.0
         else:
             valorTotal = float(valorTotal)
 
         if desconto == "":
-            desconto = 0
+            desconto = 0.0
 
         radioBtn = self.sender()
         if radioBtn.isChecked():
@@ -213,12 +213,12 @@ class NovaVenda(QWidget):
         desconto = 0.0
         valorTotal = self.campValorTotal.text()
         if valorTotal == "":
-            valorTotal = 0
+            valorTotal = 0.0
         else:
             valorTotal = float(valorTotal)
 
         if desconto == "":
-            desconto = 0
+            desconto = 0.0
 
         radioBtn = self.sender()
         if radioBtn.isChecked():

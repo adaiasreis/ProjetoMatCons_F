@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>978</width>
-    <height>683</height>
+    <width>520</width>
+    <height>334</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -47,6 +47,20 @@
       </spacer>
      </item>
      <item>
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="text">
+        <string>Histórico CLiente</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton">
+       <property name="text">
+        <string>+ Informações</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QPushButton" name="b_novaVenda">
        <property name="text">
         <string>Nova Venda</string>
@@ -57,8 +71,11 @@
    </item>
    <item>
     <widget class="QTableWidget" name="tableWidget">
+     <property name="alternatingRowColors">
+      <bool>true</bool>
+     </property>
      <property name="selectionMode">
-      <enum>QAbstractItemView::NoSelection</enum>
+      <enum>QAbstractItemView::SingleSelection</enum>
      </property>
      <property name="selectionBehavior">
       <enum>QAbstractItemView::SelectRows</enum>
@@ -71,37 +88,27 @@
      </property>
      <column>
       <property name="text">
-       <string>+</string>
+       <string>ID</string>
       </property>
      </column>
      <column>
       <property name="text">
-       <string>id</string>
+       <string>DATA</string>
       </property>
      </column>
      <column>
       <property name="text">
-       <string>Data</string>
+       <string>CLIENTE</string>
       </property>
      </column>
      <column>
       <property name="text">
-       <string>Nome do cliente</string>
+       <string>TELEFONE</string>
       </property>
      </column>
      <column>
       <property name="text">
-       <string>Telefone</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>   Valor Total   </string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>x</string>
+       <string>VALOR DA COMPRA</string>
       </property>
      </column>
     </widget>
