@@ -22,6 +22,8 @@ class TableWidget(QTableWidget):
         self.horizontalHeader().setStretchLastSection(False)
         self.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeToContents)
         self.horizontalHeader().setSectionResizeMode(1, QHeaderView.Stretch)
+        # Alterna as cores das linhas
+        self.setAlternatingRowColors(True)
         # desabilita a edição dos campos
         self.setEditTriggers(QTableWidget.NoEditTriggers)
         # seleciona toda a linha

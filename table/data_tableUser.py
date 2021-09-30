@@ -21,6 +21,7 @@ class TableWidget(QTableWidget):
         self.horizontalHeader().setSectionResizeMode(1,QHeaderView.Stretch)
         self.horizontalHeader().setSectionResizeMode(2,QHeaderView.ResizeToContents)
         self.horizontalHeader().setSectionResizeMode(3,QHeaderView.ResizeToContents)
+        self.setAlternatingRowColors(True)
         self.setEditTriggers(QTableWidget.NoEditTriggers)
         self.setSelectionBehavior(QTableWidget.SelectRows)
         self.clicked.connect(self.on_click)
