@@ -2,6 +2,8 @@ from PyQt5.QtWidgets import QWidget
 from PyQt5 import uic
 from table.data_tableCli import TableWidget
 from utils.clientes import Cliente
+from graphic.ui_historicoCliente import HistoricoCliente
+import models.vendas_model as Vendas
 
 class CadClientes(QWidget):
     def __init__(self):
@@ -20,6 +22,7 @@ class CadClientes(QWidget):
         self.b_novo.clicked.connect(self.addCliente)
         self.b_limpar.clicked.connect(self.limpaCampos)
         self.b_excluir.clicked.connect(self.excluirItem)
+        self.b_historico.clicked.connect(self.historicoCliente)
 
     def addCliente(self):
         # adiciona os campos na tabela
@@ -60,6 +63,7 @@ class CadClientes(QWidget):
 
         self.b_novo.setText("Adicionar")
         self.b_excluir.setEnabled(False)
+        self.b_historico.setEnabled(False)
 
     # utilizado para preencher os campos na janela principal
     def insereCliente(self, cliente):
@@ -73,8 +77,13 @@ class CadClientes(QWidget):
         # muda o nome do botão para atualizar (já que existe o Contato)
         self.b_novo.setText("Atualizar")
         self.b_excluir.setEnabled(True)
+        self.b_historico.setEnabled(True)
 
     def excluirItem(self):
         self.table.delete(self.clienteAtual)
         # limpa os campos
         self.limpaCampos()
+
+    def historicoCliente(self):
+        self.historico = HistoricoCliente(self.getClientes())
+        self.historico.show()

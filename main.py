@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import QWidget, QApplication
 from PyQt5 import uic
 import sys
-from ui.ui_mainWindow import MainWindow
+from graphic.ui_mainWindow import MainWindow
 import models.user_model as Usuarios
 
 class FazerLogin(QWidget):
