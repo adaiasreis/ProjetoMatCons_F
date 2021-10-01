@@ -3,12 +3,11 @@ from PyQt5.QtWidgets import QMainWindow
 from PyQt5 import uic
 from qt_material import apply_stylesheet
 
-from ui.ui_produtos import CadProdutos
-from ui.ui_clientes import CadClientes
-from ui.ui_novaVenda import NovaVenda
-from ui.ui_user import CadUser
-from ui.ui_vendas import Vendas
-#from ui.ui_venda
+from graphic.ui_produtos import CadProdutos
+from graphic.ui_clientes import CadClientes
+from graphic.ui_novaVenda import NovaVenda
+from graphic.ui_user import CadUser
+from graphic.ui_vendas import Vendas
 
 class MainWindow(QMainWindow):
     def __init__(self, janelaLogin):
@@ -19,8 +18,9 @@ class MainWindow(QMainWindow):
         self.listWidget.insertItem(0, "PRODUTOS")
         self.listWidget.insertItem(1, "CLIENTES")
         self.listWidget.insertItem(2, "FUNCIONÁRIOS")
-        self.listWidget.insertItem(3, "NOVA VENDA")
-        self.listWidget.insertItem(4, "VENDAS")
+        self.listWidget.insertItem(3, "VENDAS")
+        self.listWidget.insertItem(4, "NOVA VENDA")
+        
 
         self.listWidget.setCurrentRow(0)
 
@@ -33,8 +33,9 @@ class MainWindow(QMainWindow):
         self.stackedWidget.insertWidget(0, CadProdutos())
         self.stackedWidget.insertWidget(1, CadClientes())
         self.stackedWidget.insertWidget(2, CadUser())
-        self.stackedWidget.insertWidget(3, NovaVenda(self))
-        self.stackedWidget.insertWidget(4, Vendas(self))
+        self.stackedWidget.insertWidget(3, Vendas(self))
+        self.stackedWidget.insertWidget(4, NovaVenda(self))
+        
 
     def display(self, index):
         # necessário carregar as janelas a cada trasição para atualizar as informações

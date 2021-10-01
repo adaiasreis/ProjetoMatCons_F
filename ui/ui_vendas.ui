@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>p_historivoVendas</class>
+ <widget class="QWidget" name="p_historivoVendas">
+  <property name="windowModality">
+   <enum>Qt::WindowModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,7 +14,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Histórico de Vendas</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -24,7 +27,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Histórico de vendas</string>
+      <string>HISTÓRICO DE VENDAS</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -47,14 +50,10 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_2">
-       <property name="text">
-        <string>Histórico CLiente</string>
+      <widget class="QPushButton" name="b_informacoes">
+       <property name="enabled">
+        <bool>false</bool>
        </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton">
        <property name="text">
         <string>+ Informações</string>
        </property>

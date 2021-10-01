@@ -29,11 +29,41 @@ def addVenda(venda):
 
     conn.close
 
+def getVendasCliente(id_cliente):
+    conn = sqlite3.connect('models/db_matcons.db')
+    cursor = conn.cursor()
+    lista_de_vendas = []
+    sql = "SELECT * FROM Vendas WHERE id_cliente = ? ORDER BY data ASC;"
+    cursor.execute(sql, [id_cliente])
+    for v in cursor.fetchall():
+        id_venda = v[0]
+        id_cliente = v[1]
+        valorTotal = v[2]
+        data = v[3]
+        lista_de_itens = []
+        sql_itens = "SELECT * FROM ItensVenda WHERE id_venda = ?;"
+        valuesItens = [id_venda]
+        cursor.execute(sql_itens, valuesItens)
+        for i in cursor.fetchall():
+            id_produto = i[1]
+            quantidade = i[2]
+            valorUnitario = i[3]
+
+            produto = Produtos.getProdutos(id_produto)  #"""id_produto"""
+            item = ItemVenda(quantidade, produto, valorUnitario)
+            lista_de_itens.append(item)
+
+        cliente = Clientes.getCliente(id_cliente)
+        venda = Venda(id_venda, cliente, lista_de_itens, valorTotal, data)
+        lista_de_vendas.append(venda)
+    conn.close()
+    return lista_de_vendas
+
 def getVendas():
     conn = sqlite3.connect('models/db_matcons.db')
     cursor = conn.cursor()
     lista_de_vendas = []
-    sql = "SELECT * FROM Vendas;"
+    sql = "SELECT * FROM Vendas ORDER BY data desc;"
     cursor.execute(sql)
     for v in cursor.fetchall():
         id_venda = v[0]
@@ -49,8 +79,8 @@ def getVendas():
             quantidade = i[2]
             valorUnitario = i[3]
 
-            produto = Produtos.getProdutos()  #"""id_produto"""
-            item = ItemVenda(quantidade, produto, valorUnitario,)
+            produto = Produtos.getProduto(id_produto)
+            item = ItemVenda(quantidade, produto, valorUnitario)
             lista_de_itens.append(item)
 
         cliente = Clientes.getCliente(id_cliente)
