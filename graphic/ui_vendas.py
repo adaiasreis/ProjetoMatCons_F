@@ -12,13 +12,11 @@ TYPE = {'remove': 0, 'info': 1}"""
 
 
 class Vendas(QWidget):
-    def __init__(self, parent): #venda
+    def __init__(self, venda): #venda
         super(). __init__()
         uic.loadUi("ui/ui_vendas.ui", self)
 
-        self.parent = parent
-        """self.venda = venda
-        self.w = None"""
+        self.venda = venda
 
         self.configTable()
 
@@ -48,32 +46,28 @@ class Vendas(QWidget):
         self.lista_de_vendas = Venda.getVendas()
         self.tableWidget.setRowCount(0)
         for v in self.lista_de_vendas:
-            self._addRow(v)
+            rowCount = self.tableWidget.rowCount()
+            self.tableWidget.insertRow(rowCount)
+            # fixa a linha e muda a coluna conforme os valores
+            id = QTableWidgetItem(str(v.id))
+            id.setTextAlignment(Qt.AlignCenter)
+            data = QTableWidgetItem(v.data)
+            data.setTextAlignment(Qt.AlignCenter)
+            nome = QTableWidgetItem(v.cliente.nome)
+            fone = QTableWidgetItem(v.cliente.telefone)
+            fone.setTextAlignment(Qt.AlignCenter)
+            valor = QTableWidgetItem(str(v.getValorTotal()))
+            valor.setTextAlignment(Qt.AlignCenter)
 
-    # item - Objeto ItemVenda
-    def _addRow(self, item):
-        rowCount = self.tableWidget.rowCount()
-        self.tableWidget.insertRow(rowCount)
-        # fixa a linha e muda a coluna conforme os valores
-        id = QTableWidgetItem(str(item.id))
-        id.setTextAlignment(Qt.AlignCenter)
-        data = QTableWidgetItem(item.data)
-        data.setTextAlignment(Qt.AlignCenter)
-        nome = QTableWidgetItem(item.cliente.nome)
-        fone = QTableWidgetItem(item.cliente.telefone)
-        fone.setTextAlignment(Qt.AlignCenter)
-        valor = QTableWidgetItem(str(item.getValorTotal()))
-        valor.setTextAlignment(Qt.AlignCenter)
-
-        # insere os itens na tabela
-        #self.tableWidget.setCellWidget(rowCount, 0, CustomQWidget(item, self, TYPE['info']))
-        self.tableWidget.setItem(rowCount, 0, id)
-        self.tableWidget.setItem(rowCount, 1, data)
-        self.tableWidget.setItem(rowCount, 2, nome)
-        self.tableWidget.setItem(rowCount, 3, fone)
-        self.tableWidget.setItem(rowCount, 4, valor)
-        #self.tableWidget.setCellWidget(rowCount, 6, CustomQWidget(item, self))
-        self.b_informacoes.setEnabled(True)
+            # insere os itens na tabela
+            #self.tableWidget.setCellWidget(rowCount, 0, CustomQWidget(item, self, TYPE['info']))
+            self.tableWidget.setItem(rowCount, 0, id)
+            self.tableWidget.setItem(rowCount, 1, data)
+            self.tableWidget.setItem(rowCount, 2, nome)
+            self.tableWidget.setItem(rowCount, 3, fone)
+            self.tableWidget.setItem(rowCount, 4, valor)
+            #self.tableWidget.setCellWidget(rowCount, 6, CustomQWidget(item, self))
+            self.b_informacoes.setEnabled(True)
 
     def informacaoVenda(self):
         self.w = InfoVenda(self.carregaVendas())
