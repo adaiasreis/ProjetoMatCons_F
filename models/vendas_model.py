@@ -33,7 +33,7 @@ def getVendasCliente(id_cliente):
     conn = sqlite3.connect('models/db_matcons.db')
     cursor = conn.cursor()
     lista_de_vendas = []
-    sql = "SELECT * FROM Vendas WHERE id_cliente = ? ORDER BY data ASC;"
+    sql = "SELECT * FROM Vendas WHERE id_cliente = ?;" # ORDER BY data ASC
     cursor.execute(sql, [id_cliente])
     for v in cursor.fetchall():
         id_venda = v[0]
@@ -49,7 +49,7 @@ def getVendasCliente(id_cliente):
             quantidade = i[2]
             valorUnitario = i[3]
 
-            produto = Produtos.getProdutos(id_produto)  #"""id_produto"""
+            produto = Produtos.getProduto(id_produto)
             item = ItemVenda(quantidade, produto, valorUnitario)
             lista_de_itens.append(item)
 

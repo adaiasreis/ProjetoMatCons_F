@@ -11,6 +11,7 @@ class HistoricoCliente(QWidget):
         uic.loadUi("ui/ui_historicoCliente.ui", self)
 
         self.cliente = cliente
+        print(cliente.id)
 
         # Configuração da tabela
         self.configTable()
@@ -20,6 +21,8 @@ class HistoricoCliente(QWidget):
 
     def insertDados(self):
         lista_vendas = Vendas.getVendasCliente(self.cliente.id)
+        print(lista_vendas)
+        self.tableWidget.setRowCount(0)
         for v in lista_vendas:
             rowCount = self.tableWidget.rowCount()
             self.tableWidget.insertRow(rowCount)
@@ -51,11 +54,3 @@ class HistoricoCliente(QWidget):
         self.tableWidget.setEditTriggers(QTableWidget.NoEditTriggers)
         # seleciona toda a linha
         self.tableWidget.setSelectionBehavior(QTableWidget.SelectRows)
-        # evento ao selecionar uma linha
-        self.tableWidget.clicked.connect(self.on_click)
-
-    def on_click(self):
-        selected_row = self.currentRow()
-        id = self.cliente(selected_row, 0).text()
-        venda = Vendas.getVendaCliente(id)
-        self.insereDados(venda)

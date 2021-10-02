@@ -85,5 +85,5 @@ class CadClientes(QWidget):
         self.limpaCampos()
 
     def historicoCliente(self):
-        self.historico = HistoricoCliente(self.getClientes())
+        self.historico = HistoricoCliente(self.clienteAtual)
         self.historico.show()

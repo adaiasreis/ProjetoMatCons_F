@@ -152,6 +152,11 @@
       </column>
       <column>
        <property name="text">
+        <string>QUANTIDADE</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
         <string>V. TOTAL</string>
        </property>
       </column>

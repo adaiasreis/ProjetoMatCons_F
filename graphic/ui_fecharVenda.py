@@ -9,27 +9,22 @@ class FecharVenda(QWidget):
         self.winCompra = winCompra
         uic.loadUi("ui/ui_fecharVenda.ui", self)
 
+        #self.campDinheiro.setPlaceholderText(self.campDinheiro)
+        self.totalPagar = self.winCompra.campTotalPagar.text()
+        self.campTotalPagar.setText(self.totalPagar)
+        
+
         self.campDinheiro.textEdited.connect(self.text_edited)
 
-        valorDinheiro = 0
+    def text_edited(self, valorDinheiro):
+        print(valorDinheiro)
 
-        totalPagar = self.winCompra.campTotalPagar.text()
-        if totalPagar == "":
-            totalPagar = 0.0
-        else:
-           totalPagar = float(self.totalPagar)
-            
-        valorDinheiro = self.campDinheiro.text()
-        if valorDinheiro == "":
-            valorDinheiro = 0.0
-        else:
-            valorDinheiro = float(valorDinheiro)
+        valorTroco = 0
 
-        valorTroco = self.valorDinheiro - self.totalPagar
+        if valorDinheiro != "":
+    
+            if float(self.totalPagar) < float(valorDinheiro):
 
+                valorTroco = float(valorDinheiro) - float(self.totalPagar)
 
-        self.campTotalPagar.setText("%.2f" % totalPagar)
-        self.campDinheiro.setText("%.2f" % valorDinheiro)
-
-    def text_edited(self, s):
-        self.campTroco.setText("%.2f" % valorTroco)
+            self.campTroco.setText("%.2f" % valorTroco)
