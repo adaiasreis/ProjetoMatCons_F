@@ -12,7 +12,7 @@ TYPE = {'remove': 0, 'info': 1}"""
 
 
 class Vendas(QWidget):
-    def __init__(self, venda): #venda
+    def __init__(self, venda):
         super(). __init__()
         uic.loadUi("ui/ui_vendas.ui", self)
 
@@ -69,7 +69,7 @@ class Vendas(QWidget):
             #self.tableWidget.setCellWidget(rowCount, 6, CustomQWidget(item, self))
             self.b_informacoes.setEnabled(True)
 
-    def informacaoVenda(self):
+    def informacaoVenda(self, venda):
         self.w = InfoVenda(self.carregaVendas())
         self.w.show()
 

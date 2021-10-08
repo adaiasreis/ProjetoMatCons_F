@@ -13,7 +13,7 @@ class InfoVenda(QWidget):
 
         self.venda = venda
         self.configTable()
-        self.carregaVendas()
+        self.carregaVenda()
 
         self.campCliente.setText(self.venda.cliente.nome)
         self.campData.setText(self.venda.data)
@@ -34,7 +34,8 @@ class InfoVenda(QWidget):
         # seleciona toda a linha
         self.tableWidget.setSelectionBehavior(False)
 
-    def carregaVendas(self):
+    def carregaVenda(self):
+        lista_de_itens = []
         lista_de_itens = self.venda.lista_de_itens
         print(lista_de_itens)
         self.tableWidget.setRowCount(0)
@@ -42,16 +43,16 @@ class InfoVenda(QWidget):
             rowCount = self.tableWidget.rowCount()
             self.tableWidget.insertRow(rowCount)
             produto = QTableWidgetItem(i.getNomeProduto())
-            valorunit = QTableWidgetItem(str(i.getValorUni()))
-            valorunit.setTextAlignment(Qt.AlignCenter)
-            qtd = QTableWidgetItem(str(i.quantidade))
-            qtd.setTextAlignment(Qt.AlignCenter)
-            valortot = QTableWidgetItem(str(i.getValor()))
-            valortot.setTextAlignment(Qt.AlignCenter)
+            valorUni = QTableWidgetItem(str(i.getValorUni()))
+            valorUni.setTextAlignment(Qt.AlignCenter)
+            quantidade = QTableWidgetItem(str(i.quantidade))
+            quantidade.setTextAlignment(Qt.AlignCenter)
+            valorTotal = QTableWidgetItem(str(i.getValor()))
+            valorTotal.setTextAlignment(Qt.AlignCenter)
             
             self.tableWidget.setItem(rowCount, 0, produto)
-            self.tableWidget.setItem(rowCount, 1, valorunit)
-            self.tableWidget.setItem(rowCount, 2, qtd)
-            self.tableWidget.setItem(rowCount, 3, valortot)
+            self.tableWidget.setItem(rowCount, 1, valorUni)
+            self.tableWidget.setItem(rowCount, 2, quantidade)
+            self.tableWidget.setItem(rowCount, 3, valorTotal)
 
         
