@@ -205,7 +205,6 @@ class NovaVenda(QWidget):
 
         radioBtn = self.sender()
         if radioBtn.isChecked():
-            opcao = "Cartão de Crédito"
             desconto = valorTotal * 0.05
             valorTotalP = valorTotal - desconto
 
@@ -249,8 +248,6 @@ class NovaVenda(QWidget):
         novaVenda = Venda(-1, cliente, lista_de_itens, valor_total, data)
         Vendas.addVenda(novaVenda)
         self.limparItens()
-
-        #self.fecharVenda(novaVenda)
 
     def fecharVenda(self, winVenda):
         self.finalC = FecharVenda(self)
