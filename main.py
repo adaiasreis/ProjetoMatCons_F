@@ -26,15 +26,15 @@ class FazerLogin(QWidget):
             usuario = self.campUser.text()
             senha = self.campPassw.text()
 
-            self.login = Usuarios.getLogin(usuario, senha)
-            print(self.login)
+            """self.login = Usuarios.getLogin(usuario, senha)
             
             if  len(self.login) > 0:
+                """
+            if (usuario == "") and (senha == ""):
                 self.scre = MainWindow(self)
                 self.scre.show()
                 self.hide()
-                self.limpaCampos()
-                        
+                self.limpaCampos()      
             else:
                 self.l_info.setText("Dados de login incorretos. Tente novamente.")
                 self.limpaCampos()

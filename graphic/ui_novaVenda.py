@@ -49,7 +49,6 @@ class NovaVenda(QWidget):
         for cli in self.lista_clientes:
             lista_combo.append(cli.nome)
         self.combo_clientes.addItems(lista_combo)
-        print(lista_combo)
     
     def carregaDadosProdutos(self):
         # dados do cliente
@@ -58,7 +57,6 @@ class NovaVenda(QWidget):
         for prod in self.lista_produtos:
             lista_combo.append(prod.nome)
         self.combo_produtos.addItems(lista_combo)
-        print(lista_combo)
 
     def setEventos(self):
         # Envia a posição atual do item
@@ -160,6 +158,8 @@ class NovaVenda(QWidget):
 
         if desconto == "":
             desconto = 0.0
+        else:
+            desconto == float(desconto)
         
         radioBtn = self.sender()
         if radioBtn.isChecked():
