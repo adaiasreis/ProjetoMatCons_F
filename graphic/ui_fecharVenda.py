@@ -17,7 +17,6 @@ class FecharVenda(QWidget):
         self.campDinheiro.textEdited.connect(self.text_edited)
 
     def text_edited(self, valorDinheiro):
-        print(valorDinheiro)
 
         valorTroco = 0
 
